@@ -49,6 +49,36 @@ to extend the project to include multiple apps:
 ---------------------------------------------------------------
 
 
+-------------
+| TEMPLATES |
+---------------------------------------------------------------
+a template will contain all the static parts of an html page
+
+template tags are the location where dynamic content can be inserted
+  ** this is achieved by using the render function in the original index() function in the views.py file
+
+to get started:
+  1) create a templates folder in the project directory
+  2) create separate folders for each app
+  ** first_project/templates/first_app
+  3) let django know where to look for the templates by editing the DIR key in the TEMPLATES dict
+  ** hardcoded file paths will cause issues
+  4) use the os module to find the location of the project instance
+  ** os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+  ** this assumes the file is in a directory that's in a directory
+  5) os.path.join(BASE_DIR, "templates")
+  ** this makes a system-agnostic location for the templates folder
+
+usage:
+  1) the html file should have {{ <template_tag> }} somewhere
+  2) views.py file in the app needs to have dictionaries in the form { <template_tag>: <some content>}
+  3) the render function is used in the return: render(request, <html_file_ref>, context=<the_dictionary>)
+  
+
+
+---------------------------------------------------------------
+
+
 ------------------------
 | RUNNING DJANGO STUFF |
 ---------------------------------------------------------------
