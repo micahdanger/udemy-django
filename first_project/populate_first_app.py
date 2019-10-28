@@ -1,5 +1,8 @@
 import os
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'first_project.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE','first_project.settings')
+
+import sys
+sys.path.append('/Users/micahbeckman/codeprojects/udemy-django/djangoenv/lib/python3.7/site-packages')
 
 import django
 django.setup()
@@ -28,7 +31,7 @@ def populate(N=5):
         # CREATE THE FAKE DATA FOR THAT ENTRY
         fake_url = fakegen.url()
         fake_date = fakegen.date()
-        fake_name = fake.company()
+        fake_name = fakegen.company()
 
         # CREATE THE NEW WEBPAGE ENTRY
         webpg = Webpage.objects.get_or_create(topic=top,url=fake_url,name=fake_name)[0]
@@ -37,6 +40,6 @@ def populate(N=5):
         acc_rec = AccessRecord.objects.get_or_create(name=webpg,date=fake_date)[0]
 
 if __name__ == '__main__':
-    print("populateing script!")
+    print("populating script!")
     populate(20)
     print("populating complete!")
