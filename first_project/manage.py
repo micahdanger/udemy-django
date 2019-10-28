@@ -6,7 +6,9 @@ import sys
 
 def main():
     # ADDED THIS TO HELP MANAGE.PY FIND SITE-PACKAGES
-    sys.path.append('/Users/micahbeckman/codeprojects/udemy-django/first_project/djangoenv_first_project/lib/python3.7/site-packages')
+    sys.path.append('/Users/micahbeckman/codeprojects/udemy-django/djangoenv/lib/python3.7/site-packages')
+
+    # sys.path.append('/Users/micahbeckman/codeprojects/udemy-django/first_project/djangoenv_first_project/lib/python3.7/site-packages')
 
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'first_project.settings')
     try:
