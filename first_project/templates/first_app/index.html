@@ -1,5 +1,45 @@
 <!DOCTYPE html>
-<!-- NEEDED AT THE TOP TO INDICATE STATIC FILES WILL BE LOADED -->
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Django Level Two</title>
+    <link rel="stylesheet" href="{% static "css/mystyle.css" %}"/>
+  </head>
+  <body>
+    <h1>Hi welcome to Django Level two!</h1>
+    <h2>Here are your access records:</h2>
+
+    <div class="djangotwo">
+      {% if access_records %}
+      <table>
+
+        <thead>
+          <th>Site Name</th>
+          <th>Data Accessed</th>
+        </thead>
+
+        {% for acc in access_records %}
+
+        <tr>
+          <td>{{ acc.name }}</td>
+          <td>{{ acc.date }}</td>
+        </tr>
+
+        {% endfor %}
+
+      </table>
+
+      {% else %}
+      <p>NO ACCESS RECORDS FOUND!</P>
+        {% endif %}
+    </div>
+
+  </body>
+</html>
+<!--
+<!DOCTYPE html>
+NEEDED AT THE TOP TO INDICATE STATIC FILES WILL BE LOADED
 {% load staticfiles %}
 <html lang="en" dir="ltr">
   <head>
@@ -10,11 +50,11 @@
   <body>
     <h1>Hello this is a test page!</h1>
       <h2>{{ insert_content }}</h2>
-    <!--
     <h1>Hi, this is a picture of Django</h1>
     <img src="{% static "images/djangoguitar.jpg" %}" alt="Uh oh, didn't show!">
     {{ insert_me }}
-  -->
 
   </body>
 </html>
+
+ -->
