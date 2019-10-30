@@ -6,8 +6,8 @@ import sys
 
 def main():
     # ADDED THIS TO HELP DJANGO FIND SITE PACKATES
-    sys.path.append('/Users/micahbeckman/codeprojects/udemy-django/djangoenv/lib/python3.7/site-packages')
-    
+    sys.path.append('/Users/micahbeckman/codeprojects/udemy-django/ProTwo/djangoenv_ProTwo/lib/python3.7/site-packages')
+
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ProTwo.settings')
     try:
         from django.core.management import execute_from_command_line

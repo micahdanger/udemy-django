@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Django Level Two Project</title>
+    <link rel="stylesheet" href="{% static "css/mystlye.css" %}">
+  </head>
+  <body>
+    <h1>Here's the latest from our project:</h1>
+    <h2>Here are your user records:</h2>
+
+    <div class="djangotwo">
+      {% if users %}
+      <table>
+        <thead>
+          <th>User Name</th>
+          <th>Email</th>
+        </thead>
+        <ol>
+          {% for usr in users %}
+
+          <li>User Info</li>
+          <ul>
+            <li>First Name: {{usr.first_name}}</li>
+            <li>Last Name: {{usr.last_name}}</li>
+            <li>Email: {{usr.email}}</li>
+          </ul>
+
+        {% endfor %}
+      </ol>
+      </table>
+
+      {% else %}
+      <p class="error_p">NO USER RECORDS FOUND!</p>
+      {% endif %}
+    </div>
+
+  </body>
+</html>
