@@ -48,7 +48,7 @@ to register your models (to use admin portal to interact):
 
 to populate models with dummy data:
   1) pip install Faker (https://faker.readthedocs.io/en/master/)
-
+  2) check the populate...py script in first_project, ProTwo
 
 
 ---------------------------------------------------------------
@@ -123,16 +123,58 @@ usage:
 ---------------------------------------------------------------
 
 
+---------------------
+| FORMS STUFF |
+---------------------------------------------------------------
+import forms:
+  from . import forms
+  from forms import <form_name>
+
+in the urls.py file:
+  path('<form_page>/', views.<form_name>, name='form_name')
+
+in the templates folder:
+  form_name.html
+
+security:
+  add {% csrf_token %} inside the form tag on an html form page
+
+validators:
+  1) add custom validators as functions above the form class
+    def <check_name>(value):
+     <stuff to check>
+  2) include the validator in a list in the field input
+    validators=[(<check_name>)]
+  3) you can also define a 'clean()' method of the form class
+    def clean(self):
+      all_clean_data = super().clean()
+      if <something>:
+        raise <some error>
+  
+---------------------------------------------------------------
+
+
 -----------------
 | TEMPLATE TAGS |
 ---------------------------------------------------------------
+to load static files, include this at the top:
+  {% load staticfiles %}
+
 if statement:
   {% if <thing> %}
+    <stuff>
+  {% endif %}
 
 for statements:
   {% for <thing> in <list> %}
+    <iterative stuff>
   {% endfor %}
 
+to reference stuff from the request/render:
+  {{ <direct python syntax for accessing dictionaries:> }}
+
+methods in template tags:
+  {{form.as_p}} - 'as_p' returns it in <p></p> style
 
 ---------------------------------------------------------------
 
