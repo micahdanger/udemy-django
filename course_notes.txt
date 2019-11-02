@@ -6,6 +6,13 @@
 ---------------------------------------------------------------
 must add this to manage.py file:
   sys.path.append('/Users/micahbeckman/codeprojects/udemy-django/djangoenv/lib/python3.7/site-packages')
+  ** path to site packages
+
+migrations:
+  1) python manage.py migrate
+  2) python manage.py makemigrations
+  3) python manage.py migrate
+
 
 ---------------------------------------------------------------
 
@@ -94,6 +101,17 @@ to extend the project to include multiple apps:
 
 ---------------------------------------------------------------
 
+
+------------------------------
+| RELATIVE URL MAPPING STUFF |
+---------------------------------------------------------------
+URLs can also use templates:
+  <a href="basicapp/thankyou">Thanks</a>
+  can be changed to
+  <a href="{% url 'basicapp.views.thankyou' %}">Thanks</a>
+
+
+---------------------------------------------------------------
 
 -------------
 | TEMPLATES |
