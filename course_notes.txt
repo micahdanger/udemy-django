@@ -113,6 +113,7 @@ URLs can also use templates:
 
 ---------------------------------------------------------------
 
+
 -------------
 | TEMPLATES |
 ---------------------------------------------------------------
@@ -137,6 +138,19 @@ usage:
   1) the html file should have {{ <template_tag> }} somewhere
   2) views.py file in the app needs to have dictionaries in the form { <template_tag>: <some content>}
   3) the render function is used in the return: render(request, <html_file_ref>, context=<the_dictionary>)
+
+template inheritance:
+  in the base.html:
+    <body>
+      {% block body_block %}
+      {% endblock %}
+    </body>
+  in the other.html:
+    {% extends "basic_app/base.html" %}
+    {% block body_block %}
+    <HTML specific to other>
+    <HTML specific to other>
+    {% endblock %}
 
 ---------------------------------------------------------------
 
