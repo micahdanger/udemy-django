@@ -1,4 +1,4 @@
-"""Django_CBV URL Configuration
+"""mysite URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -15,11 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from basic_app import views
+from django.contrib.auth import views
 
 urlpatterns = [
+    path('', include('blog.urls')),
     path('admin/', admin.site.urls),
-    path('', views.IndexView.as_view()),
-    path('', views.IndexView.as_view()),
-    path('basic_app/', include('basic_app.urls', namespace='basic_app'))
+    path('accounts/login/',views.LoginView.as_view(template_name='registration/login.html'),name='login'),
+    path('accounts/logout/',views.LogoutView.as_view(),name='logout',kwargs={'next_page': '/'}),
 ]
